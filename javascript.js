@@ -1,3 +1,4 @@
+
 function getComputerChoice() {
     let x = Math.random();
     let y = "";
@@ -66,29 +67,36 @@ function playRound(humanChoice, computerChoice) {
 }
 
 
-function playGame() {
+function playGame(humanChoice) {
     let humanScore = 0;
     let computerScore = 0;
 
-    for (let i = 0; i < 5; i++) {
-        let humanChoice = getHumanChoice();
-        let computerChoice = getComputerChoice();
-        let results = playRound(humanChoice, computerChoice);
-        console.log(results);
-        switch (results) {
-            case "Tie":
-                break;
-            case "You lose":
-                computerScore++;
-                break;
-            case "You win!":
-                humanScore++;
-                break;
-        }
+    let choice = humanChoice;
+    let computerChoice = getComputerChoice();
+    let results = playRound(choice, computerChoice);
+    console.log(results);
+    switch (results) {
+        case "Tie":
+            break;
+        case "You lose":
+            computerScore++;
+            break;
+        case "You win!":
+            humanScore++;
+            break;
     }
     console.log(humanScore);
     console.log(computerScore);
     
 }
 
-playGame();
+
+const buttons = document.querySelectorAll("button");
+const winCount = document.querySelector("#wins");
+const lossCount = document.querySelector("#losses");
+
+buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+        playGame(button.id);
+    });
+});
