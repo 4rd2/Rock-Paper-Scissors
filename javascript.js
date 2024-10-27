@@ -74,29 +74,34 @@ function playGame(humanChoice) {
     let choice = humanChoice;
     let computerChoice = getComputerChoice();
     let results = playRound(choice, computerChoice);
-    console.log(results);
+    const result = document.getElementById('results');
     switch (results) {
         case "Tie":
+            result.innerText = "Tie";
             break;
         case "You lose":
+            result.innerText = "You lose";
             computerScore++;
             break;
         case "You win!":
+            result.innerText = "You win!";
             humanScore++;
             break;
     }
-    console.log(humanScore);
-    console.log(computerScore);
-    
+    const wins = document.getElementById('winCount');
+    const losses = document.getElementById('lossCount');
+    const value = parseInt(wins.innerText) + humanScore;
+    const value1 = parseInt(losses.innerText) + computerScore;
+    wins.innerText = value;
+    losses.innerText = value1;
 }
 
 
 const buttons = document.querySelectorAll("button");
-const winCount = document.querySelector("#wins");
-const lossCount = document.querySelector("#losses");
 
 buttons.forEach((button) => {
     button.addEventListener("click", () => {
         playGame(button.id);
+
     });
 });
