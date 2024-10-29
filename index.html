@@ -8,17 +8,21 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <section class="scoreCount">
-        <span>Wins</span>
-        <span id="winCount">0</span>
-        <span>Losses</span>
-        <span id="lossCount">0</span>
-    </section>
-    <p id="results"></p>
     <section id="container">
-        <button id="rock">Rock</button>
-        <button id="paper">Paper</button>
-        <button id="scissors">Scissors</button>
+        <section id="choices">
+            <button id="rock">Rock</button>
+            <button id="paper">Paper</button>
+            <button id="scissors">Scissors</button>
+        </section>
+        <section class="text">
+            <p id="results">Rock, Paper, or Scissors?</p>
+            <section class="scoreCount">
+                <span>Wins:</span>
+                <span id="winCount">0</span>
+                <span>Losses:</span>
+                <span id="lossCount">0</span>
+            </section>
+        </section>
     </section>
 </body>
 </html>
